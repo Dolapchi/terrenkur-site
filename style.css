@@ -1,4 +1,44 @@
-/* Базовые настройки стиля а-ля Tilda + Agava-M */
+/* ======================== */
+/* 1. Подключение локальных шрифтов (замена Google Fonts) */
+/* ======================== */
+@font-face {
+    font-family: 'Montserrat';
+    src: local('Montserrat Light'), local('Montserrat-Light');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: local('Montserrat Regular'), local('Montserrat-Regular');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: local('Montserrat Medium'), local('Montserrat-Medium');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: local('Montserrat SemiBold'), local('Montserrat-SemiBold');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: local('Montserrat Bold'), local('Montserrat-Bold');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: local('Montserrat ExtraBold'), local('Montserrat-ExtraBold');
+    font-weight: 800;
+    font-style: normal;
+}
+
+/* Базовые настройки */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,7 +48,7 @@ html {
     scroll-behavior: smooth;
 }
 body {
-    font-family: 'Montserrat', 'Lato', sans-serif;
+    font-family: 'Montserrat', 'Segoe UI', sans-serif;
     color: #2d2d2d;
     background-color: #ffffff;
     line-height: 1.62;
@@ -52,7 +92,9 @@ body {
     box-shadow: 0 6px 20px rgba(119, 138, 110, 0.5);
 }
 
-/* Шапка (стекло) */
+/* ======================== */
+/* 2. Шапка (Header) */
+/* ======================== */
 .header {
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(10px);
@@ -67,10 +109,10 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 .logo {
-    display: flex;
-    flex-direction: column;
+    flex: 0 0 auto;
 }
 .logo-main {
     font-size: 22px;
@@ -78,18 +120,13 @@ body {
     color: #2d2d2d;
     letter-spacing: 1.5px;
 }
-.logo-sub {
-    font-size: 10px;
-    text-transform: uppercase;
-    color: #778a6e;
-    font-weight: 600;
-    letter-spacing: 2px;
-    margin-top: 2px;
+.nav {
+    display: flex;
+    gap: 20px;
 }
 .nav a {
     color: #2d2d2d;
     text-decoration: none;
-    margin: 0 16px;
     font-weight: 500;
     font-size: 14px;
     position: relative;
@@ -113,6 +150,7 @@ body {
 }
 .header-phone {
     text-align: right;
+    flex: 0 0 auto;
 }
 .header-phone a {
     display: block;
@@ -132,7 +170,9 @@ body {
     margin-top: 1px;
 }
 
-/* Слайдер */
+/* ======================== */
+/* 3. Слайдер */
+/* ======================== */
 .slider-container {
     position: relative;
     height: 600px;
@@ -159,29 +199,48 @@ body {
     opacity: 1;
 }
 .slide-content {
-    max-width: 700px;
+    max-width: 800px;
     padding: 20px;
     color: white;
+}
+.brand-title {
+    font-size: 20px;
+    font-weight: 300; /* Light */
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+.brand-title .slash {
+    font-family: 'Georgia', serif; /* можно заменить на Plants */
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0 8px;
+}
+.brand-title .plus {
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 2px;
 }
 .slide-content h1 {
     font-size: 42px;
     font-weight: 700;
-    margin-bottom: 20px;
-}
-.slide-content p {
-    font-size: 18px;
     margin-bottom: 30px;
-    opacity: 0.9;
 }
-.slide-content .btn {
-    background-color: #778a6e;
-    box-shadow: 0 4px 15px rgba(119, 138, 110, 0.4);
+.scroll-down {
+    display: inline-block;
+    animation: bounce 2s infinite;
+    color: white;
 }
-.slide-content .btn:hover {
-    background-color: #5f6d56;
+.scroll-down svg {
+    width: 40px;
+    height: 40px;
+    stroke: white;
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
 }
 
-/* Фоновые изображения слайдов */
+/* Фоновые изображения слайдов (замените на свои) */
 .slide:nth-child(1) {
     background-image: linear-gradient(135deg, rgba(17,17,17,0.75) 0%, rgba(17,17,17,0.4) 100%),
                       url('slide1.JPG');
@@ -221,7 +280,58 @@ body {
     right: 30px;
 }
 
-/* О компании */
+/* ======================== */
+/* 4. Блок "Рассчитать стоимость" (как на Агава-М) */
+/* ======================== */
+.cta-section {
+    padding: 60px 0;
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    border-bottom: 1px solid #e9ecef;
+}
+.cta-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.cta-text h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2d2d2d;
+    margin-bottom: 8px;
+}
+.cta-text p {
+    color: #767676;
+    font-size: 16px;
+}
+.cta-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.btn-phone {
+    background-color: transparent;
+    border: 2px solid #778a6e;
+    color: #2d2d2d;
+    box-shadow: none;
+}
+.btn-phone:hover {
+    background-color: #778a6e;
+    color: white;
+}
+.btn-calc {
+    background-color: #778a6e;
+    color: white;
+}
+.btn-calc:hover {
+    background-color: #5f6d56;
+}
+
+/* ======================== */
+/* 5. О компании */
+/* ======================== */
 .about-section {
     padding: 100px 0;
     background: #fcfcfc;
@@ -250,27 +360,32 @@ body {
     background: white;
     padding: 30px 24px;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-    border: 1px solid #f0f0f0;
-    transition: transform 0.3s;
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+    text-align: center;
 }
 .stat-item:hover {
-    transform: translateY(-3px);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    border-color: #778a6e;
 }
 .stat-num {
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 800;
     color: #778a6e;
     margin-bottom: 8px;
+    line-height: 1.2;
 }
 .stat-desc {
-    font-size: 13px;
-    color: #999999;
+    font-size: 14px;
+    color: #767676;
     font-weight: 500;
     line-height: 1.4;
 }
 
-/* Блок преимуществ (анимированные цифры) */
+/* ======================== */
+/* 6. Наши преимущества */
+/* ======================== */
 .advantages-section {
     padding: 80px 0;
     background: #f8f9fa;
@@ -330,7 +445,9 @@ body {
     margin-top: 4px;
 }
 
-/* Услуги (карточки) */
+/* ======================== */
+/* 7. Услуги */
+/* ======================== */
 .services-section {
     padding: 100px 0;
     background: #ffffff;
@@ -411,7 +528,9 @@ body {
     color: #5f6d56;
 }
 
-/* Контакты */
+/* ======================== */
+/* 8. Контакты */
+/* ======================== */
 .contacts-section {
     padding: 100px 0;
     background: #2d2d2d;
@@ -438,7 +557,9 @@ body {
     background: #778a6e;
 }
 
-/* Адаптивность */
+/* ======================== */
+/* 9. Адаптивность */
+/* ======================== */
 @media (max-width: 992px) {
     .nav {
         display: none;
@@ -450,12 +571,25 @@ body {
     .slide-content h1 {
         font-size: 32px;
     }
-    .about-section, .services-section, .contacts-section, .advantages-section {
+    .about-section,
+    .services-section,
+    .contacts-section,
+    .advantages-section,
+    .cta-section {
         padding: 60px 0;
     }
+    .cta-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+    .cta-buttons {
+        justify-content: center;
+    }
 }
-
 @media (max-width: 768px) {
+    .about-stats {
+        grid-template-columns: 1fr 1fr;
+    }
     .advantages-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
@@ -466,9 +600,20 @@ body {
     .services-grid {
         grid-template-columns: 1fr;
     }
+    .brand-title {
+        font-size: 16px;
+    }
+    .brand-title .slash {
+        font-size: 20px;
+    }
+    .brand-title .plus {
+        font-size: 10px;
+    }
 }
-
 @media (max-width: 480px) {
+    .about-stats {
+        grid-template-columns: 1fr;
+    }
     .advantages-grid {
         grid-template-columns: 1fr;
     }
@@ -480,5 +625,8 @@ body {
     .header-phone {
         text-align: center;
         width: 100%;
+    }
+    .nav {
+        display: none;
     }
 }
